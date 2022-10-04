@@ -7,11 +7,11 @@
         "fr": "Platforme de Microblogging"
     },
     "version": "2.2.11~ynh1",
-    "url": "https://github.com/Evgen0922/speechka",
+    "url": "https://github.com/Evgen0922/speechka_dev",
     "upstream": {
         "license": "AGPL-3.0",
-        "website": "https://github.com/Evgen0922/speechka",
-        "code": "https://github.com/Evgen0922/speechka",
+        "website": "https://github.com/Evgen0922/speechka_dev",
+        "code": "https://github.com/Evgen0922/speechka_dev",
         "cpe": "cpe:2.3:a:misskey:misskey"
     },
     "license": "AGPL-3.0",
