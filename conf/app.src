@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/misskey-dev/misskey/archive/refs/tags/12.112.0.tar.gz
-SOURCE_SUM=b3b4664772e18c79c1463daf194350d407722345a05a81eccafabdf4b45aa04f
+SOURCE_URL=https://github.com/Evgen0922/speechka/archive/refs/tags/2.1.50.tar.gz
+SOURCE_SUM=56283a93d90ccff584416ab99fcf2c744d93c1bc5c14fcabbca9fdbc40d8f747
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
