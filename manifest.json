@@ -3,10 +3,10 @@
     "id": "speechka",
     "packaging_format": 1,
     "description": {
-        "en": "Microblogging platform",
+        "en": "Платформа микроблогов",
         "fr": "Platforme de Microblogging"
     },
-    "version": "2.1.49~ynh1",
+    "version": "2.1.50~ynh1",
     "url": "https://github.com/Evgen0922/speechka",
     "upstream": {
         "license": "AGPL-3.0",
