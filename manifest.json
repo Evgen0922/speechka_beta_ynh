@@ -6,7 +6,7 @@
         "en": "Платформа микроблогов",
         "fr": "Platforme de Microblogging"
     },
-    "version": "2.1.52~ynh1",
+    "version": "2.1.499~ynh1",
     "url": "https://github.com/Evgen0922/speechka",
     "upstream": {
         "license": "AGPL-3.0",
