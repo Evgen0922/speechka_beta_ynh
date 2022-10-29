@@ -51,15 +51,15 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path=systemd --line
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
 
-# ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
+ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
 
-# ynh_backup_before_upgrade
-# ynh_clean_setup () {
-# 	ynh_clean_check_starting
-	
-# 	ynh_restore_upgradebackup
-# }
-# ynh_abort_if_errors
+ynh_backup_before_upgrade
+ynh_clean_setup () {
+	ynh_clean_check_starting
+	ynh_restore_upgradebackup 
+	}
+
+ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
