@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/Evgen0922/speechka-dev/archive/refs/tags/0.0.9-beta.tar.gz
-SOURCE_SUM=cb61ea2585f3b931df68940d28c323456f11c475b162dda1ec3b33bcd3d49cd6
+SOURCE_URL=https://github.com/Evgen0922/speechka-dev/archive/refs/tags/0.0.91-beta.tar.gz
+SOURCE_SUM=a28cea8176dda81fd43de7700f3809c20398886324b0f0b303d28c72d773a343
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
