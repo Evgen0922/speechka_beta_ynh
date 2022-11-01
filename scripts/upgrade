@@ -12,7 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..." --weight=1
+ynh_script_progression --message="Загрузка настроек установки..." --weight=1
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -51,7 +51,7 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path=systemd --line
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
 
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
+ynh_script_progression --message="Создание бэкапа приложения (может длиться долго)..." --weight=1
 
 ynh_backup_before_upgrade
 ynh_clean_setup () {
@@ -102,7 +102,7 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-	ynh_script_progression --message="Upgrading source files..."
+	ynh_script_progression --message="Обновление исходного кода..."
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir="$final_path" --keep="/.config/default.yml"
@@ -115,7 +115,7 @@ chown -R $app:www-data "$final_path"
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Upgrading dependencies..." --weight=5
+ynh_script_progression --message="Обновление зависимостей..." --weight=5
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 ynh_exec_warn_less ynh_install_app_dependencies $pkg_dependencies
@@ -124,7 +124,7 @@ ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ st
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
+ynh_script_progression --message="Обновление конфигурации NGINX сервера..." --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -145,7 +145,7 @@ popd
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression --message="Upgrading systemd configuration..." --weight=1
+ynh_script_progression --message="Обновление конфигурации systemd..." --weight=1
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
@@ -163,21 +163,21 @@ ynh_use_logrotate --non-append
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
+ynh_script_progression --message="Встройка сервиса в YunoHost..." --weight=1
 
 yunohost service add $app --description="A interplanetary blogging platform" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Запуск сервиса systemd..." --weight=1
 
 ynh_systemd_action --service_name=$app --action="start" --log_path=systemd --line_match="All workers started"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
+ynh_script_progression --message="Перезагрузка NGINX сервера..." --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
 
