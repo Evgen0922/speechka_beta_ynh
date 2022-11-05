@@ -32,7 +32,7 @@ app=$YNH_APP_INSTANCE_NAME
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
-ynh_script_progression --message="Validating installation parameters..." --weight=1
+ynh_script_progression --message="Проверка параметров установки..." --weight=1
 
 # Check machine architecture (in particular, we don't support ARM and 32bit machines)
 if [ $YNH_ARCH != "amd64" ] && [ $YNH_ARCH != "aarch64" ] && [ $YNH_ARCH != "arm64" ]
@@ -59,7 +59,7 @@ ynh_app_setting_set --app=$app --key=path --value=$path_url
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_script_progression --message="Finding an available port..." --weight=1
+ynh_script_progression --message="Поиск свободного порта..." --weight=1
 
 # Find an available port
 port=$(ynh_find_port --port=3020)
@@ -68,7 +68,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=3
+ynh_script_progression --message="Установка зависимостей..." --weight=3
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 ynh_exec_warn_less ynh_install_app_dependencies $pkg_dependencies
@@ -85,7 +85,7 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 #=================================================
 # CREATE A POSTGRESQL DATABASE
 #=================================================
-ynh_script_progression --message="Creating a PostgreSQL database..." --weight=2
+ynh_script_progression --message="Создание БД PostgreSQL..." --weight=2
 
 db_name=$(ynh_sanitize_dbid --db_name=$app)
 db_user=$db_name
@@ -109,7 +109,7 @@ chown -R $app:www-data "$final_path"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=3
+ynh_script_progression --message="Конфигурация NGINX сервера..." --weight=3
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -117,7 +117,7 @@ ynh_add_nginx_config
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
+ynh_script_progression --message="Добавление файла конфигурации..." --weight=1
 
 # Configure redis
 redis_db=$(ynh_redis_get_free_db)
@@ -128,7 +128,7 @@ ynh_add_config --template="../conf/default.yml" --destination="$final_path/.conf
 #=================================================
 # BUILD APP
 #=================================================
-ynh_script_progression --message="Building app..." --weight=15
+ynh_script_progression --message="Сборка приложения..." --weight=15
 
 pushd "$final_path"
 	ynh_use_nodejs
@@ -163,7 +163,7 @@ yunohost service add $app --description="A interplanetary blogging platform" --l
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Запуск сервиса systemd..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path=systemd --line_match="All workers started"
@@ -182,7 +182,7 @@ fi
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..."
+ynh_script_progression --message="Перезагрузка NGINX сервера..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -190,4 +190,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed"
+ynh_script_progression --message="Установка $app завершена!"

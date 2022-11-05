@@ -91,7 +91,7 @@ fi
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Убедитесь, что выделенный системный пользователь существует..." --weight=1
+ynh_script_progression --message="Проверка привелигий системного пользователя..." --weight=1
 
 # Create a dedicated user (if not existing)
 ynh_system_user_create --username=$app --home_dir="$final_path"
