@@ -36,7 +36,7 @@ upgrade_type=$(ynh_check_app_version_changed)
 
 if ynh_compare_current_package_version --comparison lt --version 0.0.1~ynh1
 then
-	ynh_die --message="Sorry, this version is not upgradable to the latest version :("
+	ynh_die --message="К сожалению, эта версия не может быть обновлена до последней версии :("
 fi
 
 #=================================================
@@ -66,7 +66,7 @@ ynh_abort_if_errors
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
+ynh_script_progression --message="Обеспечение нисходящей совместимости..." --weight=1
 
 # If db_name doesn't exist, create it
 if [ -z "$db_name" ]; then
@@ -91,7 +91,7 @@ fi
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Making sure dedicated system user exists..." --weight=1
+ynh_script_progression --message="Убедитесь, что выделенный системный пользователь существует..." --weight=1
 
 # Create a dedicated user (if not existing)
 ynh_system_user_create --username=$app --home_dir="$final_path"
@@ -155,7 +155,7 @@ ynh_add_systemd_config
 #=================================================
 # SETUP LOGROTATE
 #=================================================
-ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1
+ynh_script_progression --message="Обновление конфигурации logrotate..." --weight=1
 
 # Use logrotate to manage app-specific logfile(s)
 ynh_use_logrotate --non-append
