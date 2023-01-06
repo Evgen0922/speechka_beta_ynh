@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/Evgen0922/calckey/archive/refs/tags/1.0.0.tar.gz
-SOURCE_SUM=9408d89b4afad900e858143c55f84b3a4790d18a6bd01c7e267ab0d907797bfb
+SOURCE_URL=https://github.com/Evgen0922/calckey/archive/refs/tags/0.0.1.tar.gz
+SOURCE_SUM=6dbd0616143ec72e609a83a63251b6362f4eba176a605a58b501c6eb9f5d08cb
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
